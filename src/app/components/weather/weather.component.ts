@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherComponent implements OnInit {
   
-  title = 'Previsao do Tempo';
+  title = 'WEATHER IN YOUR CITY';
   
   constructor() { }
 

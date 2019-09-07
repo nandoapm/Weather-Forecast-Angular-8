@@ -1,47 +1,33 @@
-<section class="main_content">
-  <div class="container content_city-information">
+<app-weather></app-weather>
+<section class="main">
+  <div class="container">
     <div class="row">
       <div class="col-lg-12">
-
-        <h1>{{titleCity}}</h1>
-        <div class="center-block">
-					
-          <div class="weather_city">
-            <!-- <button (click)="goBack()" type="button" class="btn_main left">Back</button> -->
+        <h1 class="text-center">{{titleCity}} {{dataLocation.city.name}}, {{dataLocation.city.country}} </h1>
+        <div class="center-block text-center">
+          <div class="weather-city">
             <ul *ngIf="dataLocation.city" class="weather_city_main-forecast">
-              <li class="city_name">{{dataLocation.city.name}}, {{dataLocation.city.country}}</li>
-              <li class="city_temp">{{dataLocation.list[0].main.temp}} &#8451;</li>
-              <li class="city_descr">
-                <img src="https://openweathermap.org/img/w/{{dataLocation.list[0].weather[0].icon}}.png" class="forecast-icon" alt="forecast">
+              <li class="city-temp">{{dataLocation.list[0].main.temp}} &#8451;</li>
+              <li class="city-descr">
+                <img src="https://openweathermap.org/img/w/{{dataLocation.list[0].weather[0].icon}}.png" class="forecast-icon" alt="forecast"><br>
                 <i class="owf owf-{{dataLocation.list[0].weather[0].id}}-{{dataLocation.list[0].sys.pod}}"></i> {{dataLocation.list[0].weather[0].description}}
               </li>
             </ul>
           </div>
-					
-          <h2>Forecast In The Next 5 Days</h2>
-
-					<!-- Table City Description -->
-          <table class="table table_city bg-warning">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Temperature min-max &#8451;</th>
-                <th>Pressure</th>
-                <th class="hidden-xs">Humidity</th>
-                <th class="hidden-xs">Wind deg-speed</th>
-              </tr> 
-            </thead>
+					<span>{{forecast.main.temp_min}} / {{forecast.main.temp_max}}</span>
+          <h2>5 day weather forecast</h2>
+          <table class="table">
             <tbody>
-              <tr class="table_city_list" *ngFor="let forecast of dataLocation.list">
+              <tr class="table-city-list" *ngFor="let forecast of dataLocation.list">
                 <th>{{forecast.dt_txt}}</th>
+                <td>
+                    <img src="https://openweathermap.org/img/w/{{dataLocation.list[0].weather[0].icon}}.png" class="icon" alt="forecast">
+                    <i class="owf owf-{{dataLocation.list[0].weather[0].id}}-{{dataLocation.list[0].sys.pod}}"></i> {{dataLocation.list[0].weather[0].description}}
+                </td>
                 <td>{{forecast.main.temp_min}} / {{forecast.main.temp_max}}</td>
-                <td>{{forecast.main.pressure}}</td>
-                <td class="hidden-xs">{{forecast.main.humidity}}</td>
-                <td class="hidden-xs">{{forecast.wind.deg}} / {{forecast.wind.speed}}</td>
               </tr>
             </tbody>
           </table>
-
         </div>
       </div>
     </div>

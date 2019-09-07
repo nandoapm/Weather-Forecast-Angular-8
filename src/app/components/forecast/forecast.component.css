@@ -1,0 +1,29 @@
+ul {
+  list-style: none;
+}
+
+th:hover {
+  border-left: 5px solid #39a3db; 
+}
+
+.weather-city {
+  margin: 0px auto;
+  width: 60%;
+  display: flex;
+}
+
+.city-temp {
+  width: 200px;
+  height: 100px;
+  background: #f0f0f0;
+  font-size: 50px;
+}
+
+.forecast-icon {
+  width: 100px;
+  height: 100px;
+}
+
+.city-descr {
+  border:2px solid #f0f0f0;
+}

@@ -2,7 +2,7 @@
   <div class="form-group">
 
     <input (keyup)="searchKey($event)" (click)="clickedInside($event)" type="text" 
-          class="form-control" placeholder="Your city name">
+          class="form-control" placeholder="Your city name" Classname="ion-ios-rainy">
     <ul *ngIf="results.list">
       <li *ngFor="let result of results.list">
         <a href="#" [routerLink]="['/forecast', result.id]">

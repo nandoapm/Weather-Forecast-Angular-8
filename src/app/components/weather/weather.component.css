@@ -1,0 +1,10 @@
+h1 {
+  color: antiquewhite;
+  margin: 20px;
+  font-size: 20px;
+}
+
+.center-block {
+  width: 45%;
+  margin: 0px auto;
+}

@@ -9,7 +9,7 @@ import { WeatherService } from 'src/app/services/weather.service';
 })
 export class ForecastComponent implements OnInit {
   
-  titleCity = 'Reference Forecast';
+  titleCity = 'Weather in';
   dataLocation: any = {};
 
   constructor(private weatherService: WeatherService,

@@ -12,6 +12,7 @@ export class SearchComponent implements OnInit {
   
   results: any = {};
   searchTerms = new Subject<string>();
+  dataLocation: any = {};
 
   constructor(private http: HttpClient, private weatherService: WeatherService) { }
 
@@ -20,7 +21,12 @@ export class SearchComponent implements OnInit {
   	.subscribe(results => {
 	  		this.results = results;
 	  		console.log(results);
-  	});
+    });
+    
+    this.weatherService.cityWeatherForecast().subscribe((dataLocation) => {
+      console.log(dataLocation);
+      this.dataLocation = dataLocation;
+    });
   }
 
   searchKey($event) {
@@ -36,5 +42,7 @@ export class SearchComponent implements OnInit {
     $event.stopPropagation();  // <- that will stop propagation on lower layers
     // console.log("CLICKED INSIDE");
   }
+
+  
 
 }
