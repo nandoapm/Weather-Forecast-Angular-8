@@ -17,16 +17,17 @@ export class WeatherService {
 
   apiCityUrl: string;
 
-	baseUrl: string = 'https://api.openweathermap.org/data/2.5/find';
+  baseUrl: string = 'https://api.openweathermap.org/data/2.5/find';
+  apiUrl: string = 'https://api.openweathermap.org/data/2.5/forecast?id=';
+  endUrl: string = '&units=metric&appid=76d1b43ba3695cfae59aa9f7dc9b4877';
   queryUrl: string = '?q=';
-  endUrl: string = '&units=metric&appid=8371a82502f68c1f69df7d4fceb5cf42';
 
 	constructor( private http: HttpClient ) {
 		console.log('Search Service Connected ...');
   }
 
-  urlApi(cityId) {
-  	this.apiCityUrl = 'https://api.openweathermap.org/data/2.5/forecast?id=' + cityId + '&units=metric&appid=8371a82502f68c1f69df7d4fceb5cf42';
+  urlApi(cityId: string) {
+  	this.apiCityUrl = this.apiUrl + cityId + this.endUrl;
   }
 
   // Openweathermap list Api
@@ -40,7 +41,7 @@ export class WeatherService {
 		return this.http.get("../../assets/city.list.json")
 		.map(res => res);
 	}
-	searchEntries(term) {
+	searchEntries(term: string) {
     return this.http.get(this.baseUrl + this.queryUrl + term + this.endUrl)
       .map(res => res);
   }

@@ -19,7 +19,7 @@
           <table class="table">
             <tbody>
               <tr class="table-city-list" *ngFor="let forecast of dataLocation.list">
-                <th>{{forecast.dt_txt}}</th>
+                <th>{{forecast.dt_txt | date : 'EEEE'}}</th>
                 <td>
                     <img src="https://openweathermap.org/img/w/{{dataLocation.list[0].weather[0].icon}}.png" class="icon" alt="forecast">
                     <i class="owf owf-{{dataLocation.list[0].weather[0].id}}-{{dataLocation.list[0].sys.pod}}"></i> {{dataLocation.list[0].weather[0].description}}
