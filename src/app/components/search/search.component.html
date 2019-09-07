@@ -1,0 +1,17 @@
+<div class="city_search">
+  <div class="form-group">
+
+    <input (keyup)="searchKey($event)" (click)="clickedInside($event)" type="text" 
+          class="form-control" placeholder="Your city name">
+    <ul *ngIf="results.list">
+      <li *ngFor="let result of results.list">
+        <a href="#" [routerLink]="['/forecast', result.id]">
+					{{ result.name }}, {{ result.sys.country }}
+					<span class="city_search_temp">{{ result.main.temp }} &#8451;</span> 
+				</a>
+      </li>
+    </ul>
+
+  </div>
+</div>
+

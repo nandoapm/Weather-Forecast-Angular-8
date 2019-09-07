@@ -1,0 +1,50 @@
+<section class="main_content">
+  <div class="container content_city-information">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <h1>{{titleCity}}</h1>
+        <div class="center-block">
+					
+          <div class="weather_city">
+            <!-- <button (click)="goBack()" type="button" class="btn_main left">Back</button> -->
+            <ul *ngIf="dataLocation.city" class="weather_city_main-forecast">
+              <li class="city_name">{{dataLocation.city.name}}, {{dataLocation.city.country}}</li>
+              <li class="city_temp">{{dataLocation.list[0].main.temp}} &#8451;</li>
+              <li class="city_descr">
+                <img src="https://openweathermap.org/img/w/{{dataLocation.list[0].weather[0].icon}}.png" class="forecast-icon" alt="forecast">
+                <i class="owf owf-{{dataLocation.list[0].weather[0].id}}-{{dataLocation.list[0].sys.pod}}"></i> {{dataLocation.list[0].weather[0].description}}
+              </li>
+            </ul>
+          </div>
+					
+          <h2>Forecast In The Next 5 Days</h2>
+
+					<!-- Table City Description -->
+          <table class="table table_city bg-warning">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Temperature min-max &#8451;</th>
+                <th>Pressure</th>
+                <th class="hidden-xs">Humidity</th>
+                <th class="hidden-xs">Wind deg-speed</th>
+              </tr> 
+            </thead>
+            <tbody>
+              <tr class="table_city_list" *ngFor="let forecast of dataLocation.list">
+                <th>{{forecast.dt_txt}}</th>
+                <td>{{forecast.main.temp_min}} / {{forecast.main.temp_max}}</td>
+                <td>{{forecast.main.pressure}}</td>
+                <td class="hidden-xs">{{forecast.main.humidity}}</td>
+                <td class="hidden-xs">{{forecast.wind.deg}} / {{forecast.wind.speed}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
